@@ -1,0 +1,356 @@
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   GTZAN Genre Classification — Full Pipeline
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main | Run directory: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb
+2026-05-01 01:07:53 | INFO     | main | Models selected: ['XGBoost']
+2026-05-01 01:07:53 | INFO     | main | Skipping EDA (--skip-eda)
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   Stage 2 — Feature Extraction (original tracks)
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main | Valid tracks: 999
+2026-05-01 01:07:53 | INFO     | features | → extract_all_features started
+2026-05-01 01:07:53 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/features.csv (use --force to recompute)
+2026-05-01 01:07:53 | INFO     | features |   999 samples, 166 features
+2026-05-01 01:07:53 | INFO     | features | ✓ extract_all_features finished in 0.1s
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   Stage 3 — Train/Test Split
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main | Training tracks (for augmentation): 799
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   Stage 4 — Augmented Feature Extraction
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | features | → extract_augmented_features started
+2026-05-01 01:07:53 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/augmented_features.csv (use --force to recompute)
+2026-05-01 01:07:53 | INFO     | features |   1598 augmented samples
+2026-05-01 01:07:53 | INFO     | features | ✓ extract_augmented_features finished in 0.0s
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   Stage 5 — Cross-Validation & Grid Search
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | cross_validation |   Loading cached features and splitting data
+2026-05-01 01:07:53 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | cross_validation | Loaded features: 999 original, 1598 augmented samples
+2026-05-01 01:07:53 | INFO     | cross_validation | Feature columns: 166
+2026-05-01 01:07:53 | INFO     | cross_validation | Train split saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/splits/train.csv  (799 samples)
+2026-05-01 01:07:53 | INFO     | cross_validation | Test split saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/splits/test.csv   (200 samples)
+2026-05-01 01:07:53 | INFO     | cross_validation | Classes: ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
+2026-05-01 01:07:53 | INFO     | main | Total experiment configs: 8 (1 models × 4 spaces × 2 aug modes)
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | main |   XGBoost [raw, aug]
+2026-05-01 01:07:53 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:07:53 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:07:53 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:07:53 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:07:53 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:01 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=78.75%  [7.2s]
+2026-05-01 01:08:01 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:07 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [6.5s]
+2026-05-01 01:08:07 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:14 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [6.5s]
+2026-05-01 01:08:14 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:21 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [6.9s]
+2026-05-01 01:08:21 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:08:30 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=76.73%  [6.6s]
+2026-05-01 01:08:30 | INFO     | cross_validation |   CV result: 76.10% ± 3.12%
+2026-05-01 01:08:30 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:08:30 | INFO     | cross_validation |   Best CV: 76.10% ± 3.12%
+2026-05-01 01:08:30 | INFO     | cross_validation | ✓ grid_search_cv finished in 33.8s
+2026-05-01 01:08:30 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:08:30 | INFO     | main |   XGBoost [raw, no-aug]
+2026-05-01 01:08:30 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:08:30 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:08:30 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:08:30 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:08:30 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:35 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [4.5s]
+2026-05-01 01:08:35 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:40 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.9s]
+2026-05-01 01:08:40 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:44 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=77.50%  [3.9s]
+2026-05-01 01:08:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:48 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [4.6s]
+2026-05-01 01:08:48 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:08:52 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.84%  [3.9s]
+2026-05-01 01:08:52 | INFO     | cross_validation |   CV result: 74.72% ± 1.51%
+2026-05-01 01:08:52 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:08:52 | INFO     | cross_validation |   Best CV: 74.72% ± 1.51%
+2026-05-01 01:08:52 | INFO     | cross_validation | ✓ grid_search_cv finished in 21.8s
+2026-05-01 01:08:52 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:08:52 | INFO     | main |   XGBoost [pca, aug]
+2026-05-01 01:08:52 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:08:52 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:08:52 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:08:52 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:08:52 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:52 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 01:08:57 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=63.75%  [4.7s]
+2026-05-01 01:08:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:08:57 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:05 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=63.75%  [5.8s]
+2026-05-01 01:09:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:05 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:11 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=70.62%  [5.8s]
+2026-05-01 01:09:11 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:11 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:17 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=73.12%  [6.0s]
+2026-05-01 01:09:17 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:09:17 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 01:09:22 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=66.04%  [5.2s]
+2026-05-01 01:09:22 | INFO     | cross_validation |   CV result: 67.46% ± 3.79%
+2026-05-01 01:09:22 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:22 | INFO     | cross_validation |   Best CV: 67.46% ± 3.79%
+2026-05-01 01:09:22 | INFO     | cross_validation | ✓ grid_search_cv finished in 27.6s
+2026-05-01 01:09:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:22 | INFO     | main |   XGBoost [pca, no-aug]
+2026-05-01 01:09:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:22 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:09:22 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:09:22 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:22 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 01:09:25 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=61.25%  [2.8s]
+2026-05-01 01:09:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:25 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:29 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=68.75%  [3.8s]
+2026-05-01 01:09:29 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:29 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:33 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=64.38%  [3.5s]
+2026-05-01 01:09:33 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:33 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 01:09:39 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [4.0s]
+2026-05-01 01:09:39 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:09:39 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 01:09:42 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=62.26%  [2.7s]
+2026-05-01 01:09:42 | INFO     | cross_validation |   CV result: 65.45% ± 3.65%
+2026-05-01 01:09:42 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:42 | INFO     | cross_validation |   Best CV: 65.45% ± 3.65%
+2026-05-01 01:09:42 | INFO     | cross_validation | ✓ grid_search_cv finished in 16.8s
+2026-05-01 01:09:42 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:42 | INFO     | main |   XGBoost [lda, aug]
+2026-05-01 01:09:42 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:42 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:09:42 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:09:42 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:42 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:42 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:44 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=63.75%  [1.9s]
+2026-05-01 01:09:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:44 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:45 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=71.25%  [1.3s]
+2026-05-01 01:09:45 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:45 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:47 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=71.25%  [2.0s]
+2026-05-01 01:09:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:47 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:49 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.88%  [1.5s]
+2026-05-01 01:09:49 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:09:49 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:50 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=75.47%  [1.4s]
+2026-05-01 01:09:50 | INFO     | cross_validation |   CV result: 70.72% ± 3.82%
+2026-05-01 01:09:50 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:50 | INFO     | cross_validation |   Best CV: 70.72% ± 3.82%
+2026-05-01 01:09:50 | INFO     | cross_validation | ✓ grid_search_cv finished in 8.1s
+2026-05-01 01:09:50 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:50 | INFO     | main |   XGBoost [lda, no-aug]
+2026-05-01 01:09:50 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:50 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:09:50 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:09:50 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:50 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:50 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:51 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=62.50%  [0.8s]
+2026-05-01 01:09:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:51 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:52 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=69.38%  [0.8s]
+2026-05-01 01:09:52 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:52 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:53 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=71.25%  [0.8s]
+2026-05-01 01:09:53 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:53 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:53 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=71.25%  [0.7s]
+2026-05-01 01:09:53 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:09:53 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:09:54 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=72.33%  [0.8s]
+2026-05-01 01:09:54 | INFO     | cross_validation |   CV result: 69.34% ± 3.55%
+2026-05-01 01:09:54 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:54 | INFO     | cross_validation |   Best CV: 69.34% ± 3.55%
+2026-05-01 01:09:54 | INFO     | cross_validation | ✓ grid_search_cv finished in 3.8s
+2026-05-01 01:09:54 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:54 | INFO     | main |   XGBoost [skb, aug]
+2026-05-01 01:09:54 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:09:54 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:09:54 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:09:54 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:09:54 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:54 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:09:59 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=78.75%  [5.0s]
+2026-05-01 01:09:59 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:09:59 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:04 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [4.6s]
+2026-05-01 01:10:04 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:04 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:07 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [3.7s]
+2026-05-01 01:10:07 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:07 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:14 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=72.50%  [3.7s]
+2026-05-01 01:10:14 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:10:14 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:17 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.96%  [3.5s]
+2026-05-01 01:10:17 | INFO     | cross_validation |   CV result: 74.84% ± 2.24%
+2026-05-01 01:10:17 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:17 | INFO     | cross_validation |   Best CV: 74.84% ± 2.24%
+2026-05-01 01:10:17 | INFO     | cross_validation | ✓ grid_search_cv finished in 20.4s
+2026-05-01 01:10:17 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:17 | INFO     | main |   XGBoost [skb, no-aug]
+2026-05-01 01:10:17 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:17 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 01:10:17 | INFO     | cross_validation | Grid search: 1 parameter combinations × 5 folds
+2026-05-01 01:10:17 | INFO     | cross_validation |   Combo 1/1: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:18 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:18 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:21 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=78.75%  [3.6s]
+2026-05-01 01:10:21 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:21 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:24 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [2.8s]
+2026-05-01 01:10:24 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:24 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:27 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=76.25%  [3.1s]
+2026-05-01 01:10:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 01:10:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:29 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=76.88%  [2.4s]
+2026-05-01 01:10:29 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 01:10:29 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:10:32 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.84%  [2.9s]
+2026-05-01 01:10:32 | INFO     | cross_validation |   CV result: 76.09% ± 1.72%
+2026-05-01 01:10:32 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:32 | INFO     | cross_validation |   Best CV: 76.09% ± 1.72%
+2026-05-01 01:10:32 | INFO     | cross_validation | ✓ grid_search_cv finished in 14.8s
+2026-05-01 01:10:32 | INFO     | main | CV results saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/results/cv_results.csv
+2026-05-01 01:10:32 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | main |   Stage 6 — Final Test Evaluation
+2026-05-01 01:10:32 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | evaluate | → final_evaluation started
+2026-05-01 01:10:32 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | evaluate |   FINAL TEST SET EVALUATION
+2026-05-01 01:10:32 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | evaluate | Test set used for the first and only time.
+2026-05-01 01:10:32 | INFO     | evaluate | Train samples: 799
+2026-05-01 01:10:32 | INFO     | evaluate | Aug samples:   1598
+2026-05-01 01:10:32 | INFO     | evaluate | Test samples:  200
+2026-05-01 01:10:32 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | evaluate |   XGBoost [raw, aug]
+2026-05-01 01:10:32 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:32 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:32 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:10:32 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 01:10:43 | INFO     | evaluate | Test accuracy: 86.50%
+2026-05-01 01:10:43 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_raw_aug_final.joblib
+2026-05-01 01:10:43 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_raw_aug_scaler.joblib
+2026-05-01 01:10:46 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_raw_aug.png
+2026-05-01 01:10:46 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:46 | INFO     | evaluate |   XGBoost [raw, no-aug]
+2026-05-01 01:10:46 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:46 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:46 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:10:46 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 01:10:51 | INFO     | evaluate | Test accuracy: 85.00%
+2026-05-01 01:10:51 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_raw_no-aug_final.joblib
+2026-05-01 01:10:51 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_raw_no-aug_scaler.joblib
+2026-05-01 01:10:52 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_raw_no-aug.png
+2026-05-01 01:10:52 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:52 | INFO     | evaluate |   XGBoost [pca, aug]
+2026-05-01 01:10:52 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:52 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:52 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:10:52 | DEBUG    | reduction | PCA: 166 → 84 components (95% var)
+2026-05-01 01:10:52 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 01:10:57 | INFO     | evaluate | Test accuracy: 73.00%
+2026-05-01 01:10:57 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_aug_final.joblib
+2026-05-01 01:10:57 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_aug_scaler.joblib
+2026-05-01 01:10:57 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_aug_reducer.joblib
+2026-05-01 01:10:58 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_pca_aug.png
+2026-05-01 01:10:58 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:58 | INFO     | evaluate |   XGBoost [pca, no-aug]
+2026-05-01 01:10:58 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:10:58 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:10:58 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:10:58 | DEBUG    | reduction | PCA: 166 → 84 components (95% var)
+2026-05-01 01:10:58 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 01:11:01 | INFO     | evaluate | Test accuracy: 69.00%
+2026-05-01 01:11:01 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_no-aug_final.joblib
+2026-05-01 01:11:01 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_no-aug_scaler.joblib
+2026-05-01 01:11:01 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_pca_no-aug_reducer.joblib
+2026-05-01 01:11:02 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_pca_no-aug.png
+2026-05-01 01:11:02 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:02 | INFO     | evaluate |   XGBoost [lda, aug]
+2026-05-01 01:11:02 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:02 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:11:02 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:11:02 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:11:02 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 01:11:03 | INFO     | evaluate | Test accuracy: 74.50%
+2026-05-01 01:11:03 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_aug_final.joblib
+2026-05-01 01:11:03 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_aug_scaler.joblib
+2026-05-01 01:11:03 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_aug_reducer.joblib
+2026-05-01 01:11:04 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_lda_aug.png
+2026-05-01 01:11:04 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:04 | INFO     | evaluate |   XGBoost [lda, no-aug]
+2026-05-01 01:11:04 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:04 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:11:04 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:11:04 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 01:11:04 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 01:11:04 | INFO     | evaluate | Test accuracy: 74.00%
+2026-05-01 01:11:05 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_no-aug_final.joblib
+2026-05-01 01:11:05 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_no-aug_scaler.joblib
+2026-05-01 01:11:05 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_lda_no-aug_reducer.joblib
+2026-05-01 01:11:05 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_lda_no-aug.png
+2026-05-01 01:11:05 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:05 | INFO     | evaluate |   XGBoost [skb, aug]
+2026-05-01 01:11:05 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:05 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:11:05 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:11:05 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:11:05 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 01:11:09 | INFO     | evaluate | Test accuracy: 85.00%
+2026-05-01 01:11:09 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_aug_final.joblib
+2026-05-01 01:11:09 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_aug_scaler.joblib
+2026-05-01 01:11:09 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_aug_reducer.joblib
+2026-05-01 01:11:09 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_skb_aug.png
+2026-05-01 01:11:09 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:09 | INFO     | evaluate |   XGBoost [skb, no-aug]
+2026-05-01 01:11:09 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 01:11:09 | INFO     | evaluate | Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 01:11:09 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 01:11:09 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 01:11:09 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 01:11:12 | INFO     | evaluate | Test accuracy: 83.50%
+2026-05-01 01:11:12 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_no-aug_final.joblib
+2026-05-01 01:11:12 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_no-aug_scaler.joblib
+2026-05-01 01:11:12 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/models/xgboost_skb_no-aug_reducer.joblib
+2026-05-01 01:11:13 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_xgboost_skb_no-aug.png
+2026-05-01 01:11:13 | INFO     | evaluate | 
+Final results saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/results/final_results.csv
+2026-05-01 01:11:13 | INFO     | evaluate | 
+Final Results Summary:
+2026-05-01 01:11:13 | INFO     | evaluate | 
+  model feat_space  augmented  cv_mean   cv_std  test_acc
+XGBoost        raw       True 0.760959 0.031160     0.865
+XGBoost        raw      False 0.747186 0.015065     0.850
+XGBoost        skb       True 0.748412 0.022426     0.850
+XGBoost        skb      False 0.760936 0.017175     0.835
+XGBoost        lda       True 0.707193 0.038224     0.745
+XGBoost        lda      False 0.693404 0.035498     0.740
+XGBoost        pca       True 0.674575 0.037858     0.730
+XGBoost        pca      False 0.654528 0.036501     0.690
+2026-05-01 01:11:13 | INFO     | evaluate | ============================================================
+2026-05-01 01:11:13 | INFO     | evaluate |   BEST MODEL    : XGBoost [raw, aug]
+2026-05-01 01:11:13 | INFO     | evaluate |   TEST ACCURACY : 86.50%
+2026-05-01 01:11:13 | INFO     | evaluate | ============================================================
+2026-05-01 01:11:13 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb/plots/models/final_cv_vs_test.png
+2026-05-01 01:11:13 | INFO     | evaluate | ✓ final_evaluation finished in 37.7s
+2026-05-01 01:11:13 | INFO     | main | ============================================================
+2026-05-01 01:11:13 | INFO     | main |   PIPELINE COMPLETE
+2026-05-01 01:11:13 | INFO     | main |   Total elapsed: 3m 05.2s
+2026-05-01 01:11:13 | INFO     | main |   Run directory: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_01-07-53_xgb
+2026-05-01 01:11:13 | INFO     | main | ============================================================

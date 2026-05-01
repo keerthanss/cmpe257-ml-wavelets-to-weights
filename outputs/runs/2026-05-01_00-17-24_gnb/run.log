@@ -1,0 +1,332 @@
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   GTZAN Genre Classification — Full Pipeline
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main | Run directory: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb
+2026-05-01 00:17:24 | INFO     | main | Models selected: ['Gaussian NB']
+2026-05-01 00:17:24 | INFO     | main | Skipping EDA (--skip-eda)
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   Stage 2 — Feature Extraction (original tracks)
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main | Valid tracks: 999
+2026-05-01 00:17:24 | INFO     | features | → extract_all_features started
+2026-05-01 00:17:24 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/features.csv (use --force to recompute)
+2026-05-01 00:17:24 | INFO     | features |   999 samples, 166 features
+2026-05-01 00:17:24 | INFO     | features | ✓ extract_all_features finished in 0.0s
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   Stage 3 — Train/Test Split
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main | Training tracks (for augmentation): 799
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   Stage 4 — Augmented Feature Extraction
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | features | → extract_augmented_features started
+2026-05-01 00:17:24 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/augmented_features.csv (use --force to recompute)
+2026-05-01 00:17:24 | INFO     | features |   1598 augmented samples
+2026-05-01 00:17:24 | INFO     | features | ✓ extract_augmented_features finished in 0.0s
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   Stage 5 — Cross-Validation & Grid Search
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | cross_validation |   Loading cached features and splitting data
+2026-05-01 00:17:24 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | cross_validation | Loaded features: 999 original, 1598 augmented samples
+2026-05-01 00:17:24 | INFO     | cross_validation | Feature columns: 166
+2026-05-01 00:17:24 | INFO     | cross_validation | Train split saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/splits/train.csv  (799 samples)
+2026-05-01 00:17:24 | INFO     | cross_validation | Test split saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/splits/test.csv   (200 samples)
+2026-05-01 00:17:24 | INFO     | cross_validation | Classes: ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
+2026-05-01 00:17:24 | INFO     | main | Total experiment configs: 8 (1 models × 4 spaces × 2 aug modes)
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | main |   Gaussian NB [raw, aug]
+2026-05-01 00:17:24 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:24 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:24 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:24 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=60.00%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=56.25%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=58.13%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=58.75%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=58.49%  [0.0s]
+2026-05-01 00:17:25 | INFO     | cross_validation |   CV result: 58.32% ± 1.21%
+2026-05-01 00:17:25 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.1s
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | main |   Gaussian NB [raw, no-aug]
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:25 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=63.75%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=59.38%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=56.88%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=60.62%  [0.0s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=59.12%  [0.0s]
+2026-05-01 00:17:25 | INFO     | cross_validation |   CV result: 59.95% ± 2.25%
+2026-05-01 00:17:25 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.0s
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | main |   Gaussian NB [pca, aug]
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:25 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=51.25%  [0.1s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=58.13%  [0.1s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=51.25%  [0.2s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=55.00%  [0.1s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=43.40%  [0.1s]
+2026-05-01 00:17:25 | INFO     | cross_validation |   CV result: 51.80% ± 4.93%
+2026-05-01 00:17:25 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.6s
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | main |   Gaussian NB [pca, no-aug]
+2026-05-01 00:17:25 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:25 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:25 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=53.12%  [0.1s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:25 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:25 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=54.37%  [0.1s]
+2026-05-01 00:17:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=54.37%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=64.38%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=60.38%  [0.1s]
+2026-05-01 00:17:26 | INFO     | cross_validation |   CV result: 57.33% ± 4.34%
+2026-05-01 00:17:26 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.6s
+2026-05-01 00:17:26 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:26 | INFO     | main |   Gaussian NB [lda, aug]
+2026-05-01 00:17:26 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:26 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:26 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=66.25%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=68.12%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=66.25%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=68.12%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=39.62%  [0.1s]
+2026-05-01 00:17:26 | INFO     | cross_validation |   CV result: 61.67% ± 11.06%
+2026-05-01 00:17:26 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.5s
+2026-05-01 00:17:26 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:26 | INFO     | main |   Gaussian NB [lda, no-aug]
+2026-05-01 00:17:26 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:26 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:26 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:26 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:26 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=68.75%  [0.1s]
+2026-05-01 00:17:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=71.25%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=72.96%  [0.0s]
+2026-05-01 00:17:27 | INFO     | cross_validation |   CV result: 72.34% ± 2.17%
+2026-05-01 00:17:27 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.3s
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | main |   Gaussian NB [skb, aug]
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:27 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=60.00%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=53.75%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=54.37%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=58.75%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=58.49%  [0.0s]
+2026-05-01 00:17:27 | INFO     | cross_validation |   CV result: 57.07% ± 2.52%
+2026-05-01 00:17:27 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.1s
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | main |   Gaussian NB [skb, no-aug]
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:17:27 | INFO     | cross_validation | No hyperparameters to tune — running single CV pass
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=64.38%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=57.50%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=58.75%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=59.38%  [0.0s]
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:17:27 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:27 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=61.01%  [0.0s]
+2026-05-01 00:17:27 | INFO     | cross_validation |   CV result: 60.20% ± 2.37%
+2026-05-01 00:17:27 | INFO     | cross_validation | ✓ grid_search_cv finished in 0.0s
+2026-05-01 00:17:27 | INFO     | main | CV results saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/results/cv_results.csv
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | main |   Stage 6 — Final Test Evaluation
+2026-05-01 00:17:27 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate | → final_evaluation started
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate |   FINAL TEST SET EVALUATION
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate | Test set used for the first and only time.
+2026-05-01 00:17:27 | INFO     | evaluate | Train samples: 799
+2026-05-01 00:17:27 | INFO     | evaluate | Aug samples:   1598
+2026-05-01 00:17:27 | INFO     | evaluate | Test samples:  200
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate |   Gaussian NB [raw, aug]
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:27 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 00:17:27 | INFO     | evaluate | Test accuracy: 58.50%
+2026-05-01 00:17:27 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_raw_aug_final.joblib
+2026-05-01 00:17:27 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_raw_aug_scaler.joblib
+2026-05-01 00:17:27 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_raw_aug.png
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate |   Gaussian NB [raw, no-aug]
+2026-05-01 00:17:27 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:27 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:27 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:27 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 00:17:27 | INFO     | evaluate | Test accuracy: 64.00%
+2026-05-01 00:17:27 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_raw_no-aug_final.joblib
+2026-05-01 00:17:27 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_raw_no-aug_scaler.joblib
+2026-05-01 00:17:28 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_raw_no-aug.png
+2026-05-01 00:17:28 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:28 | INFO     | evaluate |   Gaussian NB [pca, aug]
+2026-05-01 00:17:28 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:28 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:28 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:28 | DEBUG    | reduction | PCA: 166 → 84 components (95% var)
+2026-05-01 00:17:28 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 00:17:28 | INFO     | evaluate | Test accuracy: 49.50%
+2026-05-01 00:17:28 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_aug_final.joblib
+2026-05-01 00:17:28 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_aug_scaler.joblib
+2026-05-01 00:17:28 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_aug_reducer.joblib
+2026-05-01 00:17:28 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_pca_aug.png
+2026-05-01 00:17:28 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:28 | INFO     | evaluate |   Gaussian NB [pca, no-aug]
+2026-05-01 00:17:28 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:28 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:28 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:28 | DEBUG    | reduction | PCA: 166 → 84 components (95% var)
+2026-05-01 00:17:28 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 00:17:28 | INFO     | evaluate | Test accuracy: 53.00%
+2026-05-01 00:17:28 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_no-aug_final.joblib
+2026-05-01 00:17:28 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_no-aug_scaler.joblib
+2026-05-01 00:17:28 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_pca_no-aug_reducer.joblib
+2026-05-01 00:17:29 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_pca_no-aug.png
+2026-05-01 00:17:29 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:29 | INFO     | evaluate |   Gaussian NB [lda, aug]
+2026-05-01 00:17:29 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:29 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:29 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:29 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:29 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 00:17:29 | INFO     | evaluate | Test accuracy: 73.50%
+2026-05-01 00:17:29 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_aug_final.joblib
+2026-05-01 00:17:29 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_aug_scaler.joblib
+2026-05-01 00:17:29 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_aug_reducer.joblib
+2026-05-01 00:17:29 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_lda_aug.png
+2026-05-01 00:17:29 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:29 | INFO     | evaluate |   Gaussian NB [lda, no-aug]
+2026-05-01 00:17:29 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:29 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:29 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:29 | DEBUG    | reduction | LDA: 166 → 9 discriminant components
+2026-05-01 00:17:29 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 00:17:29 | INFO     | evaluate | Test accuracy: 80.50%
+2026-05-01 00:17:29 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_no-aug_final.joblib
+2026-05-01 00:17:29 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_no-aug_scaler.joblib
+2026-05-01 00:17:29 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_lda_no-aug_reducer.joblib
+2026-05-01 00:17:30 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_lda_no-aug.png
+2026-05-01 00:17:30 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:30 | INFO     | evaluate |   Gaussian NB [skb, aug]
+2026-05-01 00:17:30 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:30 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:30 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:30 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:30 | INFO     | evaluate | Final training set: 2397 (orig=799, aug=1598)
+2026-05-01 00:17:30 | INFO     | evaluate | Test accuracy: 62.50%
+2026-05-01 00:17:30 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_aug_final.joblib
+2026-05-01 00:17:30 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_aug_scaler.joblib
+2026-05-01 00:17:30 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_aug_reducer.joblib
+2026-05-01 00:17:30 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_skb_aug.png
+2026-05-01 00:17:30 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:30 | INFO     | evaluate |   Gaussian NB [skb, no-aug]
+2026-05-01 00:17:30 | INFO     | evaluate | ────────────────────────────────────────────────────────────
+2026-05-01 00:17:30 | INFO     | evaluate | Best params: {}
+2026-05-01 00:17:30 | DEBUG    | reduction | Scaler fitted on 799 samples, 166 features
+2026-05-01 00:17:30 | DEBUG    | reduction | SelectKBest: 166 → 80 features
+2026-05-01 00:17:30 | INFO     | evaluate | Final training set: 799 (original only)
+2026-05-01 00:17:30 | INFO     | evaluate | Test accuracy: 64.00%
+2026-05-01 00:17:30 | INFO     | evaluate | Model saved   → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_no-aug_final.joblib
+2026-05-01 00:17:30 | INFO     | evaluate | Scaler saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_no-aug_scaler.joblib
+2026-05-01 00:17:30 | INFO     | evaluate | Reducer saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/models/gaussian_nb_skb_no-aug_reducer.joblib
+2026-05-01 00:17:31 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_gaussian_nb_skb_no-aug.png
+2026-05-01 00:17:31 | INFO     | evaluate | 
+Final results saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/results/final_results.csv
+2026-05-01 00:17:31 | INFO     | evaluate | 
+Final Results Summary:
+2026-05-01 00:17:31 | INFO     | evaluate | 
+      model feat_space  augmented  cv_mean   cv_std  test_acc
+Gaussian NB        lda      False 0.723412 0.021688     0.805
+Gaussian NB        lda       True 0.616745 0.110578     0.735
+Gaussian NB        raw      False 0.599489 0.022526     0.640
+Gaussian NB        skb      False 0.602013 0.023729     0.640
+Gaussian NB        skb       True 0.570731 0.025184     0.625
+Gaussian NB        raw       True 0.583231 0.012132     0.585
+Gaussian NB        pca      False 0.573255 0.043374     0.530
+Gaussian NB        pca       True 0.518042 0.049290     0.495
+2026-05-01 00:17:31 | INFO     | evaluate | ============================================================
+2026-05-01 00:17:31 | INFO     | evaluate |   BEST MODEL    : Gaussian NB [lda, no-aug]
+2026-05-01 00:17:31 | INFO     | evaluate |   TEST ACCURACY : 80.50%
+2026-05-01 00:17:31 | INFO     | evaluate | ============================================================
+2026-05-01 00:17:31 | INFO     | models | Saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb/plots/models/final_cv_vs_test.png
+2026-05-01 00:17:31 | INFO     | evaluate | ✓ final_evaluation finished in 4.1s
+2026-05-01 00:17:31 | INFO     | main | ============================================================
+2026-05-01 00:17:31 | INFO     | main |   PIPELINE COMPLETE
+2026-05-01 00:17:31 | INFO     | main |   Total elapsed: 6.8s
+2026-05-01 00:17:31 | INFO     | main |   Run directory: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-17-24_gnb
+2026-05-01 00:17:31 | INFO     | main | ============================================================

@@ -1,0 +1,550 @@
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   GTZAN Genre Classification — Full Pipeline
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main | Run directory: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-34-22_xgb
+2026-05-01 00:34:22 | INFO     | main | Models selected: ['XGBoost']
+2026-05-01 00:34:22 | INFO     | main | Skipping EDA (--skip-eda)
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   Stage 2 — Feature Extraction (original tracks)
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main | Valid tracks: 999
+2026-05-01 00:34:22 | INFO     | features | → extract_all_features started
+2026-05-01 00:34:22 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/features.csv (use --force to recompute)
+2026-05-01 00:34:22 | INFO     | features |   999 samples, 166 features
+2026-05-01 00:34:22 | INFO     | features | ✓ extract_all_features finished in 0.0s
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   Stage 3 — Train/Test Split
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main | Training tracks (for augmentation): 799
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   Stage 4 — Augmented Feature Extraction
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | features | → extract_augmented_features started
+2026-05-01 00:34:22 | INFO     | features | Cache hit: /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/cache/augmented_features.csv (use --force to recompute)
+2026-05-01 00:34:22 | INFO     | features |   1598 augmented samples
+2026-05-01 00:34:22 | INFO     | features | ✓ extract_augmented_features finished in 0.0s
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   Stage 5 — Cross-Validation & Grid Search
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | cross_validation |   Loading cached features and splitting data
+2026-05-01 00:34:22 | INFO     | cross_validation | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | cross_validation | Loaded features: 999 original, 1598 augmented samples
+2026-05-01 00:34:22 | INFO     | cross_validation | Feature columns: 166
+2026-05-01 00:34:22 | INFO     | cross_validation | Train split saved → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-34-22_xgb/splits/train.csv  (799 samples)
+2026-05-01 00:34:22 | INFO     | cross_validation | Test split saved  → /home/keerthanss/Projects/CMPE257ML/final/scripts/outputs/runs/2026-05-01_00-34-22_xgb/splits/test.csv   (200 samples)
+2026-05-01 00:34:22 | INFO     | cross_validation | Classes: ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
+2026-05-01 00:34:22 | INFO     | main | Total experiment configs: 8 (1 models × 4 spaces × 2 aug modes)
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | main |   XGBoost [raw, aug]
+2026-05-01 00:34:22 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:34:22 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:34:22 | INFO     | cross_validation | Grid search: 16 parameter combinations × 5 folds
+2026-05-01 00:34:22 | INFO     | cross_validation |   Combo 1/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:34:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:26 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=73.12%  [3.7s]
+2026-05-01 00:34:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:29 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [3.0s]
+2026-05-01 00:34:29 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:32 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [3.0s]
+2026-05-01 00:34:32 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:38 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.25%  [3.2s]
+2026-05-01 00:34:38 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:34:41 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.96%  [3.1s]
+2026-05-01 00:34:41 | INFO     | cross_validation |   CV result: 73.22% ± 1.15%
+2026-05-01 00:34:41 | INFO     | cross_validation |   Combo 2/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:34:41 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:44 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=71.88%  [3.3s]
+2026-05-01 00:34:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:47 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [3.3s]
+2026-05-01 00:34:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:51 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [3.4s]
+2026-05-01 00:34:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:34:54 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.88%  [3.0s]
+2026-05-01 00:34:54 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:34:57 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=74.21%  [3.0s]
+2026-05-01 00:34:57 | INFO     | cross_validation |   CV result: 73.34% ± 1.20%
+2026-05-01 00:34:57 | INFO     | cross_validation |   Combo 3/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:34:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:35:05 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [8.5s]
+2026-05-01 00:35:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:35:15 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=78.75%  [8.1s]
+2026-05-01 00:35:15 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:35:23 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [8.1s]
+2026-05-01 00:35:23 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:35:32 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=72.50%  [8.6s]
+2026-05-01 00:35:32 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:35:40 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=74.21%  [8.2s]
+2026-05-01 00:35:40 | INFO     | cross_validation |   CV result: 75.72% ± 2.24%
+2026-05-01 00:35:40 | INFO     | cross_validation |   Combo 4/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:35:40 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:35:52 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [8.6s]
+2026-05-01 00:35:52 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:00 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [8.4s]
+2026-05-01 00:36:00 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:08 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=75.00%  [8.4s]
+2026-05-01 00:36:08 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:17 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.62%  [8.8s]
+2026-05-01 00:36:17 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:36:29 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=75.47%  [8.7s]
+2026-05-01 00:36:29 | INFO     | cross_validation |   CV result: 75.09% ± 2.41%
+2026-05-01 00:36:29 | INFO     | cross_validation |   Combo 5/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:36:29 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:35 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.25%  [6.2s]
+2026-05-01 00:36:35 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:41 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [6.1s]
+2026-05-01 00:36:41 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:47 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=73.75%  [5.8s]
+2026-05-01 00:36:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:36:52 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=73.75%  [5.5s]
+2026-05-01 00:36:52 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:37:01 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.96%  [5.8s]
+2026-05-01 00:37:01 | INFO     | cross_validation |   CV result: 74.47% ± 1.25%
+2026-05-01 00:37:01 | INFO     | cross_validation |   Combo 6/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:37:01 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:07 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=73.75%  [5.9s]
+2026-05-01 00:37:07 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:13 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [5.9s]
+2026-05-01 00:37:13 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:19 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=70.62%  [6.0s]
+2026-05-01 00:37:19 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:25 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [6.1s]
+2026-05-01 00:37:25 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:37:33 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=69.81%  [5.8s]
+2026-05-01 00:37:33 | INFO     | cross_validation |   CV result: 71.96% ± 2.32%
+2026-05-01 00:37:33 | INFO     | cross_validation |   Combo 7/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:37:33 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:45 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=78.12%  [11.4s]
+2026-05-01 00:37:45 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:37:57 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [12.0s]
+2026-05-01 00:37:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:38:11 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=78.12%  [11.4s]
+2026-05-01 00:38:11 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:38:24 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.88%  [13.3s]
+2026-05-01 00:38:24 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:38:44 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=74.21%  [19.6s]
+2026-05-01 00:38:44 | INFO     | cross_validation |   CV result: 75.97% ± 2.51%
+2026-05-01 00:38:44 | INFO     | cross_validation |   Combo 8/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:38:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:38:57 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [13.0s]
+2026-05-01 00:38:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:39:33 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [33.8s]
+2026-05-01 00:39:33 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:39:56 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [20.0s]
+2026-05-01 00:39:56 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:09 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [13.4s]
+2026-05-01 00:40:09 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:40:25 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.96%  [12.7s]
+2026-05-01 00:40:25 | INFO     | cross_validation |   CV result: 74.59% ± 2.77%
+2026-05-01 00:40:25 | INFO     | cross_validation |   Combo 9/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:40:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:28 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [3.0s]
+2026-05-01 00:40:28 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:31 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.25%  [3.1s]
+2026-05-01 00:40:31 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:34 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=76.25%  [3.2s]
+2026-05-01 00:40:34 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:37 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [3.3s]
+2026-05-01 00:40:37 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:40:41 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=77.99%  [3.5s]
+2026-05-01 00:40:41 | INFO     | cross_validation |   CV result: 75.47% ± 2.81%
+2026-05-01 00:40:41 | INFO     | cross_validation |   Combo 10/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:40:41 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:44 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [3.4s]
+2026-05-01 00:40:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:47 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.25%  [3.4s]
+2026-05-01 00:40:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:51 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=72.50%  [3.3s]
+2026-05-01 00:40:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:40:54 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.25%  [3.3s]
+2026-05-01 00:40:54 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:41:00 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=74.84%  [3.1s]
+2026-05-01 00:41:00 | INFO     | cross_validation |   CV result: 74.34% ± 2.16%
+2026-05-01 00:41:00 | INFO     | cross_validation |   Combo 11/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:41:00 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:07 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=78.75%  [7.0s]
+2026-05-01 00:41:07 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:14 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [7.3s]
+2026-05-01 00:41:14 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:22 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [7.7s]
+2026-05-01 00:41:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:33 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [7.9s]
+2026-05-01 00:41:33 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:41:40 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=76.73%  [7.3s]
+2026-05-01 00:41:40 | INFO     | cross_validation |   CV result: 76.10% ± 3.12%
+2026-05-01 00:41:40 | INFO     | cross_validation |   Combo 12/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:41:40 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:48 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [7.9s]
+2026-05-01 00:41:48 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:41:56 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [8.4s]
+2026-05-01 00:41:56 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:42:04 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=75.00%  [7.9s]
+2026-05-01 00:42:04 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:42:18 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=69.38%  [10.5s]
+2026-05-01 00:42:18 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:42:34 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=75.47%  [15.7s]
+2026-05-01 00:42:34 | INFO     | cross_validation |   CV result: 74.47% ± 2.62%
+2026-05-01 00:42:34 | INFO     | cross_validation |   Combo 13/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:42:34 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:42:45 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [9.0s]
+2026-05-01 00:42:45 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:42:53 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [7.1s]
+2026-05-01 00:42:53 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:42:59 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=78.12%  [6.0s]
+2026-05-01 00:42:59 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:43:07 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=73.75%  [8.7s]
+2026-05-01 00:43:07 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:43:20 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.33%  [9.8s]
+2026-05-01 00:43:20 | INFO     | cross_validation |   CV result: 75.59% ± 2.18%
+2026-05-01 00:43:20 | INFO     | cross_validation |   Combo 14/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:43:20 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:43:28 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [8.5s]
+2026-05-01 00:43:28 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:43:35 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.25%  [6.1s]
+2026-05-01 00:43:35 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:43:45 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=75.62%  [10.3s]
+2026-05-01 00:43:45 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:43:58 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [10.3s]
+2026-05-01 00:43:58 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:44:12 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=71.07%  [13.7s]
+2026-05-01 00:44:12 | INFO     | cross_validation |   CV result: 73.71% ± 2.63%
+2026-05-01 00:44:12 | INFO     | cross_validation |   Combo 15/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:44:12 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:44:25 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=80.62%  [12.8s]
+2026-05-01 00:44:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:44:38 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=78.75%  [10.5s]
+2026-05-01 00:44:38 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:44:49 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=77.50%  [10.7s]
+2026-05-01 00:44:49 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:44:59 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=71.88%  [10.1s]
+2026-05-01 00:44:59 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:45:12 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=71.70%  [10.0s]
+2026-05-01 00:45:12 | INFO     | cross_validation |   CV result: 76.09% ± 3.65%
+2026-05-01 00:45:12 | INFO     | cross_validation |   Combo 16/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:45:12 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:45:23 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [10.9s]
+2026-05-01 00:45:23 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:45:44 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=76.88%  [18.5s]
+2026-05-01 00:45:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:46:08 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=78.12%  [23.9s]
+2026-05-01 00:46:08 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:46:30 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=68.75%  [19.2s]
+2026-05-01 00:46:30 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:46:50 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=72.96%  [16.9s]
+2026-05-01 00:46:50 | INFO     | cross_validation |   CV result: 74.72% ± 3.45%
+2026-05-01 00:46:50 | INFO     | cross_validation |   Best params: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:46:50 | INFO     | cross_validation |   Best CV: 76.10% ± 3.12%
+2026-05-01 00:46:50 | INFO     | cross_validation | ✓ grid_search_cv finished in 689.5s
+2026-05-01 00:46:50 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:46:50 | INFO     | main |   XGBoost [raw, no-aug]
+2026-05-01 00:46:50 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:46:50 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:46:50 | INFO     | cross_validation | Grid search: 16 parameter combinations × 5 folds
+2026-05-01 00:46:50 | INFO     | cross_validation |   Combo 1/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:46:50 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:46:55 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [4.7s]
+2026-05-01 00:46:55 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:00 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=71.25%  [5.3s]
+2026-05-01 00:47:00 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:05 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.6s]
+2026-05-01 00:47:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:10 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=71.88%  [4.9s]
+2026-05-01 00:47:10 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:47:17 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.84%  [7.1s]
+2026-05-01 00:47:17 | INFO     | cross_validation |   CV result: 73.22% ± 1.41%
+2026-05-01 00:47:17 | INFO     | cross_validation |   Combo 2/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:47:17 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:20 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=75.62%  [3.2s]
+2026-05-01 00:47:20 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:26 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [2.9s]
+2026-05-01 00:47:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:32 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=69.38%  [5.9s]
+2026-05-01 00:47:32 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:35 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=68.75%  [3.9s]
+2026-05-01 00:47:35 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:47:38 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=73.58%  [2.5s]
+2026-05-01 00:47:38 | INFO     | cross_validation |   CV result: 71.59% ± 2.61%
+2026-05-01 00:47:38 | INFO     | cross_validation |   Combo 3/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:47:38 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:44 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=77.50%  [6.3s]
+2026-05-01 00:47:44 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:50 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [5.9s]
+2026-05-01 00:47:50 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:47:55 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=78.12%  [5.3s]
+2026-05-01 00:47:55 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:10 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [11.2s]
+2026-05-01 00:48:10 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:48:20 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=76.10%  [10.6s]
+2026-05-01 00:48:20 | INFO     | cross_validation |   CV result: 75.85% ± 2.00%
+2026-05-01 00:48:20 | INFO     | cross_validation |   Combo 4/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:48:20 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:26 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=76.25%  [5.7s]
+2026-05-01 00:48:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:31 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [5.5s]
+2026-05-01 00:48:31 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:40 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [5.4s]
+2026-05-01 00:48:40 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:45 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=71.88%  [5.5s]
+2026-05-01 00:48:45 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:48:51 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=72.96%  [5.6s]
+2026-05-01 00:48:51 | INFO     | cross_validation |   CV result: 73.34% ± 1.52%
+2026-05-01 00:48:51 | INFO     | cross_validation |   Combo 5/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:48:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:54 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [3.3s]
+2026-05-01 00:48:54 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:48:57 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=71.88%  [3.3s]
+2026-05-01 00:48:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:01 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [3.7s]
+2026-05-01 00:49:01 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:04 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [3.3s]
+2026-05-01 00:49:04 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:49:11 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=76.10%  [3.8s]
+2026-05-01 00:49:11 | INFO     | cross_validation |   CV result: 74.35% ± 1.44%
+2026-05-01 00:49:11 | INFO     | cross_validation |   Combo 6/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:49:11 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:15 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.1s]
+2026-05-01 00:49:15 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:19 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=68.75%  [3.6s]
+2026-05-01 00:49:19 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:22 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=69.38%  [3.6s]
+2026-05-01 00:49:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:26 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [3.5s]
+2026-05-01 00:49:26 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:49:31 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.84%  [4.6s]
+2026-05-01 00:49:31 | INFO     | cross_validation |   CV result: 71.47% ± 2.41%
+2026-05-01 00:49:31 | INFO     | cross_validation |   Combo 7/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:49:31 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:37 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=76.25%  [6.4s]
+2026-05-01 00:49:37 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:47 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [6.7s]
+2026-05-01 00:49:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:53 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=76.88%  [6.3s]
+2026-05-01 00:49:53 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:49:59 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [6.2s]
+2026-05-01 00:49:59 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:50:05 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=75.47%  [6.2s]
+2026-05-01 00:50:05 | INFO     | cross_validation |   CV result: 74.84% ± 1.73%
+2026-05-01 00:50:05 | INFO     | cross_validation |   Combo 8/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:50:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:12 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [6.5s]
+2026-05-01 00:50:12 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:21 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [6.5s]
+2026-05-01 00:50:21 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:28 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [6.4s]
+2026-05-01 00:50:28 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:34 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [6.5s]
+2026-05-01 00:50:34 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:50:41 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=75.47%  [6.6s]
+2026-05-01 00:50:41 | INFO     | cross_validation |   CV result: 73.22% ± 1.65%
+2026-05-01 00:50:41 | INFO     | cross_validation |   Combo 9/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:50:41 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:43 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=75.62%  [2.2s]
+2026-05-01 00:50:43 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:45 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [2.1s]
+2026-05-01 00:50:45 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:47 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [2.1s]
+2026-05-01 00:50:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:49 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [2.1s]
+2026-05-01 00:50:49 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:50:51 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=73.58%  [2.0s]
+2026-05-01 00:50:51 | INFO     | cross_validation |   CV result: 74.22% ± 0.85%
+2026-05-01 00:50:51 | INFO     | cross_validation |   Combo 10/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:50:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:57 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [2.5s]
+2026-05-01 00:50:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:50:59 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [2.1s]
+2026-05-01 00:50:59 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:01 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [2.1s]
+2026-05-01 00:51:01 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:03 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [2.1s]
+2026-05-01 00:51:03 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:51:05 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.21%  [2.1s]
+2026-05-01 00:51:05 | INFO     | cross_validation |   CV result: 72.59% ± 1.80%
+2026-05-01 00:51:05 | INFO     | cross_validation |   Combo 11/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:51:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:09 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [3.9s]
+2026-05-01 00:51:09 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:13 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.0s]
+2026-05-01 00:51:13 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:17 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=77.50%  [4.4s]
+2026-05-01 00:51:17 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:21 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [3.9s]
+2026-05-01 00:51:21 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:51:25 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.84%  [3.8s]
+2026-05-01 00:51:25 | INFO     | cross_validation |   CV result: 74.72% ± 1.51%
+2026-05-01 00:51:25 | INFO     | cross_validation |   Combo 12/16: {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:51:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:32 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=77.50%  [4.1s]
+2026-05-01 00:51:32 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:36 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.0s]
+2026-05-01 00:51:36 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:40 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=71.88%  [3.9s]
+2026-05-01 00:51:40 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:44 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=71.88%  [4.4s]
+2026-05-01 00:51:44 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:51:49 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=75.47%  [4.2s]
+2026-05-01 00:51:49 | INFO     | cross_validation |   CV result: 74.09% ± 2.17%
+2026-05-01 00:51:49 | INFO     | cross_validation |   Combo 13/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:51:49 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:51 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [2.6s]
+2026-05-01 00:51:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:54 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [2.5s]
+2026-05-01 00:51:54 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:56 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=75.62%  [2.7s]
+2026-05-01 00:51:56 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:51:59 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=75.00%  [2.7s]
+2026-05-01 00:51:59 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:52:02 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=72.96%  [2.6s]
+2026-05-01 00:52:02 | INFO     | cross_validation |   CV result: 74.22% ± 1.04%
+2026-05-01 00:52:02 | INFO     | cross_validation |   Combo 14/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:52:02 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:06 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [2.7s]
+2026-05-01 00:52:06 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:09 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [2.8s]
+2026-05-01 00:52:09 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:12 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [2.9s]
+2026-05-01 00:52:12 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:15 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [2.7s]
+2026-05-01 00:52:15 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:52:18 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=74.21%  [2.7s]
+2026-05-01 00:52:18 | INFO     | cross_validation |   CV result: 73.34% ± 0.59%
+2026-05-01 00:52:18 | INFO     | cross_validation |   Combo 15/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:52:18 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:22 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.2s]
+2026-05-01 00:52:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:26 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=73.12%  [4.2s]
+2026-05-01 00:52:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:30 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=76.88%  [4.2s]
+2026-05-01 00:52:30 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:34 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=73.75%  [4.3s]
+2026-05-01 00:52:34 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:52:42 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=73.58%  [4.2s]
+2026-05-01 00:52:42 | INFO     | cross_validation |   CV result: 74.22% ± 1.35%
+2026-05-01 00:52:42 | INFO     | cross_validation |   Combo 16/16: {'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:52:42 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:47 | INFO     | cross_validation |   Fold 1/5: train=639 (orig=639, aug=0), val=160, acc=75.62%  [5.0s]
+2026-05-01 00:52:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:51 | INFO     | cross_validation |   Fold 2/5: train=639 (orig=639, aug=0), val=160, acc=74.38%  [4.6s]
+2026-05-01 00:52:51 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:52:56 | INFO     | cross_validation |   Fold 3/5: train=639 (orig=639, aug=0), val=160, acc=70.62%  [4.3s]
+2026-05-01 00:52:56 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:00 | INFO     | cross_validation |   Fold 4/5: train=639 (orig=639, aug=0), val=160, acc=72.50%  [4.5s]
+2026-05-01 00:53:00 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:53:05 | INFO     | cross_validation |   Fold 5/5: train=640 (orig=640, aug=0), val=159, acc=75.47%  [4.4s]
+2026-05-01 00:53:05 | INFO     | cross_validation |   CV result: 73.72% ± 1.91%
+2026-05-01 00:53:05 | INFO     | cross_validation |   Best params: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:53:05 | INFO     | cross_validation |   Best CV: 75.85% ± 2.00%
+2026-05-01 00:53:05 | INFO     | cross_validation | ✓ grid_search_cv finished in 346.1s
+2026-05-01 00:53:05 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:53:05 | INFO     | main |   XGBoost [pca, aug]
+2026-05-01 00:53:05 | INFO     | main | ────────────────────────────────────────────────────────────
+2026-05-01 00:53:05 | INFO     | cross_validation | → grid_search_cv started
+2026-05-01 00:53:05 | INFO     | cross_validation | Grid search: 16 parameter combinations × 5 folds
+2026-05-01 00:53:05 | INFO     | cross_validation |   Combo 1/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:53:05 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:05 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:06 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=65.00%  [1.7s]
+2026-05-01 00:53:06 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:06 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:08 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=58.75%  [1.9s]
+2026-05-01 00:53:08 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:08 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:10 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=65.00%  [1.8s]
+2026-05-01 00:53:10 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:10 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:12 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=68.75%  [1.8s]
+2026-05-01 00:53:12 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:53:12 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:16 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=62.89%  [1.8s]
+2026-05-01 00:53:16 | INFO     | cross_validation |   CV result: 64.08% ± 3.27%
+2026-05-01 00:53:16 | INFO     | cross_validation |   Combo 2/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:53:16 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:16 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:18 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=62.50%  [1.8s]
+2026-05-01 00:53:18 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:18 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:20 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=56.88%  [1.8s]
+2026-05-01 00:53:20 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:20 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:22 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=63.12%  [2.1s]
+2026-05-01 00:53:22 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:22 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:23 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=66.25%  [1.7s]
+2026-05-01 00:53:23 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:53:23 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:25 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=60.38%  [1.8s]
+2026-05-01 00:53:25 | INFO     | cross_validation |   CV result: 61.83% ± 3.11%
+2026-05-01 00:53:25 | INFO     | cross_validation |   Combo 3/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:53:25 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:25 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:30 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=66.88%  [4.7s]
+2026-05-01 00:53:30 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:30 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:35 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=61.88%  [4.8s]
+2026-05-01 00:53:35 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:35 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:39 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=66.88%  [4.8s]
+2026-05-01 00:53:39 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:39 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:53:44 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=74.38%  [4.8s]
+2026-05-01 00:53:44 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:53:44 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:52 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=66.67%  [5.2s]
+2026-05-01 00:53:52 | INFO     | cross_validation |   CV result: 67.33% ± 4.01%
+2026-05-01 00:53:52 | INFO     | cross_validation |   Combo 4/16: {'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 300, 'subsample': 1.0}
+2026-05-01 00:53:52 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:52 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:53:57 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=63.75%  [4.8s]
+2026-05-01 00:53:57 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:53:57 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:02 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=63.12%  [4.9s]
+2026-05-01 00:54:02 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:02 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:07 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=66.88%  [4.8s]
+2026-05-01 00:54:07 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:07 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:12 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=70.00%  [4.9s]
+2026-05-01 00:54:12 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:54:12 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:54:17 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=61.01%  [4.9s]
+2026-05-01 00:54:17 | INFO     | cross_validation |   CV result: 64.95% ± 3.15%
+2026-05-01 00:54:17 | INFO     | cross_validation |   Combo 5/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}
+2026-05-01 00:54:17 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:17 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:54:20 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=63.12%  [3.4s]
+2026-05-01 00:54:20 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:20 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:26 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=61.88%  [3.5s]
+2026-05-01 00:54:26 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:26 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:30 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=64.38%  [4.0s]
+2026-05-01 00:54:30 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:30 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:34 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=66.88%  [3.7s]
+2026-05-01 00:54:34 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:54:34 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:54:38 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=60.38%  [3.6s]
+2026-05-01 00:54:38 | INFO     | cross_validation |   CV result: 63.33% ± 2.22%
+2026-05-01 00:54:38 | INFO     | cross_validation |   Combo 6/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 100, 'subsample': 1.0}
+2026-05-01 00:54:38 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:38 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:54:41 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=63.12%  [3.6s]
+2026-05-01 00:54:41 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:41 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:47 | INFO     | cross_validation |   Fold 2/5: train=1917 (orig=639, aug=1278), val=160, acc=56.88%  [5.4s]
+2026-05-01 00:54:47 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:47 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:50 | INFO     | cross_validation |   Fold 3/5: train=1917 (orig=639, aug=1278), val=160, acc=65.62%  [3.7s]
+2026-05-01 00:54:50 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:54:50 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
+2026-05-01 00:54:55 | INFO     | cross_validation |   Fold 4/5: train=1917 (orig=639, aug=1278), val=160, acc=65.00%  [4.3s]
+2026-05-01 00:54:55 | DEBUG    | reduction | Scaler fitted on 640 samples, 166 features
+2026-05-01 00:54:55 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:55:01 | INFO     | cross_validation |   Fold 5/5: train=1920 (orig=640, aug=1280), val=159, acc=59.75%  [3.5s]
+2026-05-01 00:55:01 | INFO     | cross_validation |   CV result: 62.07% ± 3.31%
+2026-05-01 00:55:01 | INFO     | cross_validation |   Combo 7/16: {'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 300, 'subsample': 0.8}
+2026-05-01 00:55:01 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:55:01 | DEBUG    | reduction | PCA: 166 → 82 components (95% var)
+2026-05-01 00:55:09 | INFO     | cross_validation |   Fold 1/5: train=1917 (orig=639, aug=1278), val=160, acc=65.00%  [7.7s]
+2026-05-01 00:55:09 | DEBUG    | reduction | Scaler fitted on 639 samples, 166 features
+2026-05-01 00:55:09 | DEBUG    | reduction | PCA: 166 → 83 components (95% var)
